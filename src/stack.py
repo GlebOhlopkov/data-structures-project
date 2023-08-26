@@ -34,4 +34,9 @@ class Stack:
 
         :return: данные удаленного элемента
         """
-    pass
+        data = self.top
+        new_top = None
+        remove = Node(data, new_top)
+        self.top = new_top
+        return remove
+
