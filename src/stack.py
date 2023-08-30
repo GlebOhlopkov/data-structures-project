@@ -10,6 +10,9 @@ class Node:
         self.data = data
         self.next_node = next_node
 
+    def __str__(self):
+        return f'({self.data}, {self.next_node})'
+
 
 class Stack:
     """Класс для стека"""
@@ -17,6 +20,9 @@ class Stack:
     def __init__(self):
         """Конструктор класса Stack"""
         self.top = None
+
+    def __str__(self):
+        return f'{self.top}'
 
     def push(self, data):
         """
