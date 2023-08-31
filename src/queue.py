@@ -26,11 +26,11 @@ class Queue:
         :param data: данные, которые будут добавлены в очередь
         """
         new_node = Node(data, None)
-        if self.head and self.tail is None:
+        if self.head is None and self.tail is None:
             self.head = new_node
             self.tail = new_node
         else:
-            self.tail.next_node = new_node.data
+            self.tail.next_node = new_node
             self.tail = new_node
 
     def dequeue(self):
@@ -43,4 +43,9 @@ class Queue:
 
     def __str__(self):
         """Магический метод для строкового представления объекта"""
-        return f''
+        next_node = self.head
+        output_datas = []
+        while next_node:
+            output_datas.append(next_node.data)
+            next_node = next_node.next_node
+        return "\n".join(output_datas)
