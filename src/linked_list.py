@@ -14,19 +14,22 @@ class LinkedList:
     def insert_beginning(self, data: dict) -> None:
         """Принимает данные (словарь) и добавляет узел с этими данными в начало связанного списка"""
         new_node = Node(data)
-        if self.head is None and self.tail is None:
+        if self.head is None:
             self.head = new_node
+            self.tail = new_node
         else:
-            self.tail = self.head
+            temp_node = self.head
             self.head = new_node
+            self.head.next_node = temp_node
 
     def insert_at_end(self, data: dict) -> None:
         """Принимает данные (словарь) и добавляет узел с этими данными в конец связанного списка"""
         new_node = Node(data)
-        if self.head is None and self.tail is None:
+        if self.head is None:
             self.head = new_node
+            self.tail = new_node
         else:
-            self.head.next_node = new_node
+            self.tail.next_node = new_node
             self.tail = new_node
 
     def __str__(self) -> str:
