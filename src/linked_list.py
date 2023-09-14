@@ -38,7 +38,7 @@ class LinkedList:
         list_format = []
         node = self.head
         while node:
-            list_format.append(str(node.data))
+            list_format.append(node.data)
             node = node.next_node
         return list_format
 
@@ -47,13 +47,11 @@ class LinkedList:
         node = self.head
         while node:
             try:
-                list_format.append(dict(node.data))
-            except:
+                if node.data['id'] == data:
+                    return node.data
+            except TypeError:
                 print('Данные не являются словарем или в словаре нет id')
             node = node.next_node
-        for piece in list_format:
-            if piece['id'] == data:
-                return piece
 
     def __str__(self) -> str:
         """Вывод данных односвязного списка в строковом представлении"""
